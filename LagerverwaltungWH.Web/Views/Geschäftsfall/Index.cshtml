@@ -1,0 +1,65 @@
+﻿@model IEnumerable<LagerverwaltungWH.Model.ViewModels.GeschäftsfallIndexVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "Geschäftsfall", FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input type="submit" style="background-color: aqua; color: white" value="Suchen" />
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bezeichnung)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lagerstand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MengeneinheitBezeichnung)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="7" style="color: red">
+                    Kein treffer!
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bezeichnung)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lagerstand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MengeneinheitBezeichnung)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.GeschäftsfallId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.GeschäftsfallId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.GeschäftsfallId })
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

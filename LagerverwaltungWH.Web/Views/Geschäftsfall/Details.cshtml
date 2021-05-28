@@ -1,0 +1,63 @@
+﻿@model IEnumerable<LagerverwaltungWH.Model.ViewModels.GeschäftsfallListVM>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bezeichnung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LB_Menge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vorgang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ErstelltVon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GeändertVon)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bezeichnung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LB_Menge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vorgang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ErstelltVon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeändertVon)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GeschäftsfallId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.GeschäftsfallId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.GeschäftsfallId })
+        </td>
+    </tr>
+}
+
+</table>

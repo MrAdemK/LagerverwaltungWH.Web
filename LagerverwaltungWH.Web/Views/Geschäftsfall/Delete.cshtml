@@ -1,0 +1,72 @@
+﻿@model LagerverwaltungWH.Model.DatabaseModels.Geschäftsfall
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Geschäftsfall</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Lagerartikel.Bezeichnung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lagerartikel.Bezeichnung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lagerbewegung.LagerbewegungsId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lagerbewegung.LagerbewegungsId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vorgangstyp.Vorgang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vorgangstyp.Vorgang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ErstelltVon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ErstelltVon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GeändertVon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GeändertVon)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
